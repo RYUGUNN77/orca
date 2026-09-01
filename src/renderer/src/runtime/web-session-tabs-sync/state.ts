@@ -190,9 +190,11 @@ export type WebSessionTabsSyncState = Pick<
     Pick<
       AppState,
       | 'acknowledgedAgentsByPaneKey'
+      | 'activityClearedAtByPaneKey'
       | 'agentLaunchConfigByPaneKey'
       | 'automaticAgentResumeClaimsByTabId'
       | 'migrationUnsupportedByPtyId'
+      | 'manuallyUnreadTurnsByPaneKey'
       | 'paneForegroundAgentByPaneKey'
       | 'pendingStartupByTabId'
       | 'recentlyClosedAgentStatusTabIds'

@@ -499,9 +499,11 @@ describe('ClaudeAccountService credential capture', () => {
     expect(settings.claudeManagedAccounts[0].updatedAt).toBeGreaterThan(1)
     expect(settings.claudeManagedAccounts[0].lastAuthenticatedAt).toBeGreaterThan(1)
     expect(runtimeAuth.forceMaterializeCurrentSelectionForRollback).not.toHaveBeenCalled()
-    expect(warn).toHaveBeenCalledWith(
-      '[claude-accounts] Failed to refresh Claude usage after reauthentication:',
-      refreshError
+    await vi.waitFor(() =>
+      expect(warn).toHaveBeenCalledWith(
+        '[claude-accounts] Failed to refresh Claude usage after reauthentication:',
+        refreshError
+      )
     )
     warn.mockRestore()
   })
